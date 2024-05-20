@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using OfficeToPdf.Lib.Conf;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +20,7 @@ namespace OfficeToPdf
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = Item.BindingParams;
         }
     }
 }

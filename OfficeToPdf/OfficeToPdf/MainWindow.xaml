@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OfficeToPdf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="OfficeToPdf"
+        Width="{Binding Setting.Width, Mode=TwoWay}"
+        Height="{Binding Setting.Height, Mode=TwoWay}"
+        Left="{Binding Setting.X, Mode=TwoWay}"
+        Top="{Binding Setting.Y, Mode=TwoWay}">
     <Grid>
-
+        
     </Grid>
 </Window>
