@@ -11,6 +11,8 @@
         Left="{Binding Setting.X, Mode=TwoWay}"
         Top="{Binding Setting.Y, Mode=TwoWay}">
     <Grid>
-        
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            
+        </ScrollViewer>
     </Grid>
 </Window>

@@ -10,6 +10,11 @@ namespace OfficeToPdf.Lib.Conf
 {
     internal class Setting
     {
+        public string PythonPath { get; set; }
+        public string ScriptWork { get; set; }
+        public string ConvertExcelScript { get; set; }
+        public string ConvertWordScript { get; set; }
+        public string ConvertPowerPointScript { get; set; }
         public double Width { get; set; }
         public double Height { get; set; }
         public double X { get; set; }
@@ -32,6 +37,11 @@ namespace OfficeToPdf.Lib.Conf
             {
                 return new Setting()
                 {
+                    PythonPath = @"script\venv\Scripts\python.exe",
+                    ScriptWork = "script",
+                    ConvertExcelScript = "convert_excel.py",
+                    ConvertWordScript = "convert_word.py",
+                    ConvertPowerPointScript = "convert_powerpoint.py",
                     Width = 800,
                     Height = 600,
                     X = 100,

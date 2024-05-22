@@ -7,4 +7,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="robocopy &quot;$(SolutionDir)..\ConvertScript&quot; &quot;$(TargetDir)script&quot; /COPY:DAT /MIR&#xD;&#xA;EXIT 0&#xD;&#xA;" />
+  </Target>
+
 </Project>

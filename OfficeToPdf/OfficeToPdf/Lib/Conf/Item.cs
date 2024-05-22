@@ -16,5 +16,7 @@ namespace OfficeToPdf.Lib.Conf
             Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName));
 
         public static BindingParams BindingParams = null;
+
+        public static List<ConvertTarget> ConvertTargets = null;
     }
 }
