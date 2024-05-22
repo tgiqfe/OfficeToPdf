@@ -8,6 +8,6 @@
     <StackPanel Orientation="Horizontal">
         <TextBlock Text="{Binding FileName}"
                    Width="180" />
-        <Button Content="Remove" Click="Remove_Click" />
+        <Button Content="Remove" />
     </StackPanel>
 </UserControl>
