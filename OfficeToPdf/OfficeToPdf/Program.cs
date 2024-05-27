@@ -1,6 +1,8 @@
 ﻿
 using System.Diagnostics;
 
+if (args.Length == 0) return;
+
 var arguments = args.Aggregate(new List<string>(), (list, arg) =>
 {
     if (arg.Contains(";"))
@@ -14,16 +16,35 @@ var arguments = args.Aggregate(new List<string>(), (list, arg) =>
     return list;
 });
 
+string currentDirectory = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
+
+if(!Directory.Exists(Path.Combine(currentDirectory, "script", "venv")))
+{
+    using (var proc = new Process())
+    {
+        proc.StartInfo.UseShellExecute = false;
+        proc.StartInfo.CreateNoWindow = false;
+        proc.StartInfo.WorkingDirectory = Path.Combine(currentDirectory, "script");
+
+        proc.StartInfo.FileName = "cmd";
+        proc.StartInfo.Arguments = "/c InitialSetup.bat";
+        proc.Start();
+        proc.WaitForExit();
+    }
+}
+
 arguments.ForEach(arg =>
 {
     string extension = Path.GetExtension(arg);
-    string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(arg);    
+    string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(arg);
     string parent = Path.GetDirectoryName(arg);
     string output = Path.Combine(parent, fileNameWithoutExtension + ".pdf");
-    using(var proc = new Process())
+    using (var proc = new Process())
     {
-        proc.StartInfo.WorkingDirectory = @"script";
-        proc.StartInfo.FileName = @".\venv\Scripts\python.exe";
+        proc.StartInfo.UseShellExecute = false;
+        proc.StartInfo.CreateNoWindow = false;
+        proc.StartInfo.WorkingDirectory = Path.Combine(currentDirectory, "script");
+        proc.StartInfo.FileName = @"venv\Scripts\python.exe";
         switch (extension)
         {
             case ".xls":
