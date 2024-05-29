@@ -24,7 +24,7 @@ cd ConvertScript
 venv\Scripts\python convert_word.py <Wordファイルのパス>
 ```
 
-PowerPOintファイルをPDFに
+PowerPointファイルをPDFに
 ```dos
 cd ConvertScript
 venv\Scripts\python convert_powerpoint.py <PowerPointファイルのパス>
