@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "OfficeToPdf": {
-      "commandName": "Project",
-      "commandLineArgs": "\"C:\\Users\\User\\Documents\\Work\\OfficeToPdf\\SampleData\\SampleExcel01.xlsx\""
-    }
-  }
-}
