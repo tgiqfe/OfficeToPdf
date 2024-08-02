@@ -27,6 +27,23 @@ namespace OfficeToPdf
         public DocumentStatus Status { get; set; }
         public bool? LastCheck { get; set; }
 
+        public DocumentItem(string path)
+        {
+            this.Name = Path.GetFileName(path);
+            this.FilePath = path;
+            this.DocumentType = Path.GetExtension(path).ToLower() switch
+            {
+                ".doc" => DocumentType.Word,
+                ".docx" => DocumentType.Word,
+                ".xls" => DocumentType.Excel,
+                ".xlsx" => DocumentType.Excel,
+                ".ppt" => DocumentType.PowerPoint,
+                ".pptx" => DocumentType.PowerPoint,
+                _ => DocumentType.Unknown,
+            };
+            this.Status = DocumentStatus.Waiting;
+        }
+
         #region Inotify change
 
         public event PropertyChangedEventHandler PropertyChanged;

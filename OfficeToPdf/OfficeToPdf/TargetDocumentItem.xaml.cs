@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,11 +21,11 @@ namespace OfficeToPdf
     /// </summary>
     public partial class TargetDocumentItem : UserControl
     {
-        
-
         public TargetDocumentItem()
         {
             InitializeComponent();
+
+            this.DataContext = Item.Documents;
         }
     }
 }

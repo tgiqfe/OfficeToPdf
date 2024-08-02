@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace OfficeToPdf
 {
-    internal enum DocumentType
+    internal class Item
     {
-        Unknown,
-        Word,
-        Excel,
-        PowerPoint,
+        public static ObservableCollection<DocumentItem> Documents { get; set; }
     }
 }

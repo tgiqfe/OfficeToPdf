@@ -12,7 +12,7 @@ namespace OfficeToPdf
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             List<string> paths = new();
-            foreach(var arg in e.Args)
+            foreach (var arg in e.Args)
             {
                 if (arg.Contains(";"))
                 {
@@ -23,6 +23,10 @@ namespace OfficeToPdf
                     paths.Add(arg);
                 }
             }
+            Item.Documents = new();
+            paths.Select(x => new DocumentItem(x)).
+                ToList().
+                ForEach(x => Item.Documents.Add(x));
         }
 
         private void Application_Exit(object sender, ExitEventArgs e)
