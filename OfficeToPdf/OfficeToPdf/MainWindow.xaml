@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OfficeToPdf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="600">
     <Grid>
-        
+        <StackPanel Orientation="Vertical"
+                    Margin="10">
+            <local:TargetDocumentItem />
+            <local:TargetDocumentItem />
+            <local:TargetDocumentItem />
+        </StackPanel>
     </Grid>
 </Window>
