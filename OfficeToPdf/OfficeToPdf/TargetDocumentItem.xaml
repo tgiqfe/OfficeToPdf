@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="OfficeToPdf.TargetDocumentItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:OfficeToPdf"
+             xmlns:lib="clr-namespace:OfficeToPdf.Lib"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Noto Sans JP"/>
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <lib:DocumentTypeToIconConverter x:Key="DocumentTypeToIconConverter"/>
+        <lib:DocumentTypeToColorConverter x:Key="DocumentTypeToColorConverter"/>
+    </UserControl.Resources>
+    <Grid>
+        <Border BorderThickness="1 1 2 2"
+                BorderBrush="DarkGray"
+                Margin="2"
+                Padding="5">
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="{Binding DocumentType, Converter={StaticResource DocumentTypeToIconConverter}}"
+                                         Foreground="{Binding DocumentType, Converter={StaticResource DocumentTypeToColorConverter}}"
+                                         Width="24"
+                                         Height="24" 
+                                         Margin="0,0,8,0" />
+                <TextBlock Text="{Binding NameWithoutExtension}"
+                           Width="240"
+                           TextWrapping="NoWrap"
+                           TextTrimming="CharacterEllipsis" />
+                <TextBlock Text="{Binding Extension}"
+                           Width="60" />
+                <TextBlock Text="変換中"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
