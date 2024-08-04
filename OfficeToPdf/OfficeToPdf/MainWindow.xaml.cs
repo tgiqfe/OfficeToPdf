@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using OfficeToPdf.Lib;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,10 +21,17 @@ namespace OfficeToPdf
         {
             InitializeComponent();
 
+            this.DataContext = Item.Setting;
+
             foreach (var item in Item.Documents)
             {
                 TargetDocumentList.Children.Add(new TargetDocumentItem(item));
             }
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
     }
 }

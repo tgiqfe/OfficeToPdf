@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OfficeToPdf.Lib;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -10,5 +11,7 @@ namespace OfficeToPdf
     internal class Item
     {
         public static ObservableCollection<DocumentItem> Documents { get; set; }
+
+        public static Setting Setting { get; set; }
     }
 }

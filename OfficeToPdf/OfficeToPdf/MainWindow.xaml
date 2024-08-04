@@ -5,7 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OfficeToPdf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="600">
+        Title="MainWindow" Height="450" Width="480"
+        ResizeMode="NoResize"
+        MouseDown="Window_MouseDown"
+        Left="{Binding Left, Mode=TwoWay}"
+        Top="{Binding Top, Mode=TwoWay}">
     <Grid>
         <StackPanel Name="TargetDocumentList" Orientation="Vertical"
                     Margin="10">

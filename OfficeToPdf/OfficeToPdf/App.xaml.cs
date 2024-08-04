@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using OfficeToPdf.Lib;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Windows;
@@ -28,11 +29,12 @@ namespace OfficeToPdf
             paths.Select(x => new DocumentItem(x)).
                 ToList().
                 ForEach(x => Item.Documents.Add(x));
+            Item.Setting = Setting.Load();
         }
 
         private void Application_Exit(object sender, ExitEventArgs e)
         {
-
+            Item.Setting.Save();
         }
     }
 

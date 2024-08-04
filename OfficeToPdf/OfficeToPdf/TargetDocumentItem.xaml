@@ -10,9 +10,11 @@
     <UserControl.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="Noto Sans JP"/>
-            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="VerticalAlignment" Value="Center" />
         </Style>
         <lib:DocumentTypeToIconConverter x:Key="DocumentTypeToIconConverter"/>
+        <lib:DocumentTypeToColorConverter x:Key="DocumentTypeToColorConverter"/>
     </UserControl.Resources>
     <Grid>
         <Border BorderThickness="1 1 2 2"
@@ -21,12 +23,17 @@
                 Padding="5">
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="{Binding DocumentType, Converter={StaticResource DocumentTypeToIconConverter}}"
+                                         Foreground="{Binding DocumentType, Converter={StaticResource DocumentTypeToColorConverter}}"
                                          Width="24"
                                          Height="24" 
                                          Margin="0,0,8,0" />
-                <TextBlock Text="{Binding NameWithoutExtension}" VerticalAlignment="Center" />
-                <TextBlock Text="{Binding Extension}" VerticalAlignment="Center" />
-                <TextBlock Text="変換中" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding NameWithoutExtension}"
+                           Width="240"
+                           TextWrapping="NoWrap"
+                           TextTrimming="CharacterEllipsis" />
+                <TextBlock Text="{Binding Extension}"
+                           Width="60" />
+                <TextBlock Text="変換中"/>
             </StackPanel>
         </Border>
     </Grid>

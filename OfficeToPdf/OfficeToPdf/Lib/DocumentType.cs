@@ -9,8 +9,8 @@ namespace OfficeToPdf
     public enum DocumentType
     {
         Unknown,
-        Word,
         Excel,
         PowerPoint,
+        Word,
     }
 }

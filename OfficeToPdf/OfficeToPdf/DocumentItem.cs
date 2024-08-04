@@ -37,12 +37,12 @@ namespace OfficeToPdf
             this.FilePath = path;
             this.DocumentType = Path.GetExtension(path).ToLower() switch
             {
-                ".doc" => DocumentType.Word,
-                ".docx" => DocumentType.Word,
                 ".xls" => DocumentType.Excel,
                 ".xlsx" => DocumentType.Excel,
                 ".ppt" => DocumentType.PowerPoint,
                 ".pptx" => DocumentType.PowerPoint,
+                ".doc" => DocumentType.Word,
+                ".docx" => DocumentType.Word,
                 _ => DocumentType.Unknown,
             };
             this.Status = DocumentStatus.Waiting;
