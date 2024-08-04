@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OfficeToPdf
 {
-    internal enum DocumentType
+    public enum DocumentType
     {
         Unknown,
         Word,

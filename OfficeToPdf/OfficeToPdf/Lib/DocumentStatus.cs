@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OfficeToPdf.Lib
 {
-    internal enum DocumentStatus
+    public enum DocumentStatus
     {
         None,
         Waiting,

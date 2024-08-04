@@ -7,11 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="600">
     <Grid>
-        <StackPanel Orientation="Vertical"
+        <StackPanel Name="TargetDocumentList" Orientation="Vertical"
                     Margin="10">
-            <local:TargetDocumentItem />
-            <local:TargetDocumentItem />
-            <local:TargetDocumentItem />
         </StackPanel>
     </Grid>
 </Window>

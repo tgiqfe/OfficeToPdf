@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:OfficeToPdf"
+             xmlns:lib="clr-namespace:OfficeToPdf.Lib"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d">
     <UserControl.Resources>
@@ -11,6 +12,7 @@
             <Setter Property="FontFamily" Value="Noto Sans JP"/>
             <Setter Property="FontSize" Value="16" />
         </Style>
+        <lib:DocumentTypeToIconConverter x:Key="DocumentTypeToIconConverter"/>
     </UserControl.Resources>
     <Grid>
         <Border BorderThickness="1 1 2 2"
@@ -18,9 +20,12 @@
                 Margin="2"
                 Padding="5">
             <StackPanel Orientation="Horizontal">
-                <materialDesign:PackIcon Kind="FileExcel" Width="24" Height="24" Margin="0,0,8,0"/>
-                <TextBlock Text="対象のファイルの名前" VerticalAlignment="Center" />
-                <TextBlock Text=".xlsx" VerticalAlignment="Center" />
+                <materialDesign:PackIcon Kind="{Binding DocumentType, Converter={StaticResource DocumentTypeToIconConverter}}"
+                                         Width="24"
+                                         Height="24" 
+                                         Margin="0,0,8,0" />
+                <TextBlock Text="{Binding NameWithoutExtension}" VerticalAlignment="Center" />
+                <TextBlock Text="{Binding Extension}" VerticalAlignment="Center" />
                 <TextBlock Text="変換中" VerticalAlignment="Center"/>
             </StackPanel>
         </Border>

@@ -21,11 +21,14 @@ namespace OfficeToPdf
     /// </summary>
     public partial class TargetDocumentItem : UserControl
     {
+        public TargetDocumentItem(DocumentItem item) : this()
+        {
+            this.DataContext = item;
+        }
+
         public TargetDocumentItem()
         {
             InitializeComponent();
-
-            this.DataContext = Item.Documents;
         }
     }
 }

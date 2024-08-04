@@ -19,6 +19,11 @@ namespace OfficeToPdf
         public MainWindow()
         {
             InitializeComponent();
+
+            foreach (var item in Item.Documents)
+            {
+                TargetDocumentList.Children.Add(new TargetDocumentItem(item));
+            }
         }
     }
 }

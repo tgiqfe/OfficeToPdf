@@ -10,10 +10,12 @@ using System.Threading.Tasks;
 
 namespace OfficeToPdf
 {
-    internal class DocumentItem : INotifyPropertyChanged
+    public class DocumentItem : INotifyPropertyChanged
     {
-        public string Name { get; set; }
-        public string FilePath { get; set; }
+        public string Name { get; private set; }
+        public string NameWithoutExtension { get; private set; }
+        public string Extension { get; private set; }
+        public string FilePath { get; private set; }
         public string OutputPath
         {
             get
@@ -23,13 +25,15 @@ namespace OfficeToPdf
                     Path.GetFileNameWithoutExtension(this.FilePath) + ".pdf");
             }
         }
-        public DocumentType DocumentType { get; set; }
+        public DocumentType DocumentType { get; private set; }
         public DocumentStatus Status { get; set; }
         public bool? LastCheck { get; set; }
 
         public DocumentItem(string path)
         {
             this.Name = Path.GetFileName(path);
+            this.NameWithoutExtension = Path.GetFileNameWithoutExtension(path);
+            this.Extension = Path.GetExtension(path);
             this.FilePath = path;
             this.DocumentType = Path.GetExtension(path).ToLower() switch
             {
