@@ -21,7 +21,8 @@
                 BorderBrush="DarkGray"
                 Margin="2"
                 Padding="5">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal"
+                        ToolTip="{Binding FileFullPath}">
                 <materialDesign:PackIcon Kind="{Binding DocumentType, Converter={StaticResource DocumentTypeToIconConverter}}"
                                          Foreground="{Binding DocumentType, Converter={StaticResource DocumentTypeToColorConverter}}"
                                          Width="24"

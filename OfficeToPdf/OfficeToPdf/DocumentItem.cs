@@ -16,6 +16,7 @@ namespace OfficeToPdf
         public string NameWithoutExtension { get; private set; }
         public string Extension { get; private set; }
         public string FilePath { get; private set; }
+        public string FileFullPath { get; private set; }
         public string OutputPath
         {
             get
@@ -35,6 +36,7 @@ namespace OfficeToPdf
             this.NameWithoutExtension = Path.GetFileNameWithoutExtension(path);
             this.Extension = Path.GetExtension(path);
             this.FilePath = path;
+            this.FileFullPath = Path.GetFullPath(path);
             this.DocumentType = Path.GetExtension(path).ToLower() switch
             {
                 ".xls" => DocumentType.Excel,
